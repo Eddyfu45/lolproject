@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- templates/champions/index.html -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LoL Champions</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <h1>League of Legends' Champions</h1>
+        <hr />
+        {% block content %}
+        <a href="/champions/create">Add a New Champion!</a>
+        <hr />
+
+        {% for champion in champions %}
+            <a href="/champions/{{champion.id}}">{{ champion.name }}</a>
+            <a href='/user/{{champion.user.username}}'>
+                <p>Favorited By: {{champion.user.username}}</p>
+            </a>
+            
+        <hr />
+        {% endfor %}
+        {% endblock %}
+        <footer>Whatever Footer 2021</footer>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<div class="card-content">
+    <h1> Name: {{ champion.name }}</h1>
+    <p> Title: {{ champion.title }}</p>
+    <p> Lore: {{ champion.lore}}</p>
+
+    <p>Ability Q: {{ champion.abilityNameQ}}</p>
+    <p>Ability Description: {{ champion.abilityDescriptionQ}}</p>
+
+    <p>Ability W: {{ champion.abilityNameW}}</p>
+    <p>Ability Description: {{ champion.abilityDescriptionW}}</p>
+
+    <p>Ability E: {{ champion.abilityNameE}}</p>
+    <p>Ability Description: {{ champion.abilityDescriptionE}}</p>
+
+    <p>Ability R: {{ champion.abilityNameR}}</p>
+    <p>Ability Description: {{ champion.abilityDescriptionR}}</p>
+
+    <a href="{% url 'champions_update' champion.id %}">Update Champion</a> |
+    <a href="{% url 'champions_delete' champion.id %}">Delete This Champion</a>
+</div>
