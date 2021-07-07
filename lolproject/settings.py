@@ -28,8 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['lol-sei-project.herokuapp.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lol-sei-project.herokuapp.com']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 
-# DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
