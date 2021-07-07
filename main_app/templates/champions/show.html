@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <div class="card-content">
     <h1> Name: {{ champion.name }}</h1>
     <p> Title: {{ champion.title }}</p>
@@ -14,7 +16,18 @@
 
     <p>Ability R: {{ champion.abilityNameR}}</p>
     <p>Ability Description: {{ champion.abilityDescriptionR}}</p>
-
+    Comments:
+    <ol>{% for c in comment %}
+    
+        {% ifequal c.champion champion.id %}
+            <li>{{ c }}</li>
+        {% endifequal %}
+    {% empty %}
+        <div>Champion Has No Comments :(</div>
+    {% endfor %}
+    </ol>
     <a href="{% url 'champions_update' champion.id %}">Update Champion</a> |
     <a href="{% url 'champions_delete' champion.id %}">Delete This Champion</a>
+    <a href="{% url 'comment_create' champion.id %}">Leave a Comment</a>
 </div>
+{% endblock %}

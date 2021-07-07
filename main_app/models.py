@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms.models import ModelForm
 
 
 # Create your models here.
@@ -20,8 +21,20 @@ class Champion(models.Model):
 
     abilityNameR = models.CharField(max_length=100)
     abilityDescriptionR = models.CharField(max_length=100)
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
+
+class Comment(models.Model):
+    text = models.CharField(max_length=2000)
+    user = models.CharField(max_length=100)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
+    champion = models.PositiveIntegerField()
+    # champion = models.ForeignKey(Champion, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.text
+
+class Favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    champion = models.OneToOneField(Champion, on_delete=models.CASCADE)

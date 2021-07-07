@@ -14,5 +14,11 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('signup/', views.signup, name='signup'),
-    path('user/<username>/', views.profile, name='profile')
+    path('user/<username>/', views.profile, name='profile'),
+
+    path('comments/', views.comments_index, name='comments_index'),
+    path('comments/<int:comments_id>', views.comments_show, name='comments_show'),
+    path('comments/<int:champion_id>/create/', views.comment_create, name='comment_create'),
+    path('comments/<int:pk>/update/', views.CommentUpdate.as_view(), name='comments_update'),
+    path('comments/<int:pk>/delete/', views.CommentDelete.as_view(), name='comments_delete')
 ]
