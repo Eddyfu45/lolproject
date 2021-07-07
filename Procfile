@@ -1,2 +1,2 @@
-web: gunicorn yourappname.wsgi
+web: gunicorn project4-lol.wsgi
 release: python3 manage.py migrate
