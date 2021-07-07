@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-SECRET_KEY = 'RGAPI-23908087-5cca-4709-a469-67565209e7b3'
-# SECRET_KEY = os.environ.get('SECRET_KEY')
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 import dj_database_url
 import django_heroku
 
