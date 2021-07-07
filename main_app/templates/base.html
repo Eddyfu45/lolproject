@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LoL R Us</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+  </head>
+  <header>
+    {% if user.is_authenticated %}
+    <span> | </span>
+    <span><a href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a></span>
+    <span> | </span>
+    <span><a href="{% url 'logout' %}">Logout</a></span>
+    <span> | </span>
+    {% else %}
+    <span><a href="{% url 'login' %}">Login</a></span>
+    <span> | </span>
+    <span><a href="{% url 'signup' %}">SignUp</a></span>
+    {% endif %}
+    <a href="/champions">
+        <h1>League of Legends Champions</h1>
+    </a>
+  </header>
+  <hr />
+  <body>
+        {% block content %}
+        {% endblock %}
+
+      <footer>
+        Some sort of footer 2021
+      </footer>
+  </body>
+</html>

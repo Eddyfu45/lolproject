@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Comment Details</h1>
+
+<div>
+    <div>
+        <p>{{ comment.text }}</p>
+        <p>Commented under </p>
+        {% for champion in comment.champion_set.all %}
+            <p>{{champion.name}}</p>
+        {% empty %}
+            <p>Nobody has this comment</p>
+        {% endfor %}
+    </div>
+    <div>
+        <a href="{% url 'comments_update' comment.id %}">Edit</a>
+        <a href="{% url 'comments_delete' comment.id %}">Delete</a>
+    </div>
+</div>
+{% endblock %}

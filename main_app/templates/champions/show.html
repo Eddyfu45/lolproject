@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card-content">
+    <h2> Name: {{ champion.name }}</h1>
+    <p> Title: {{ champion.title }}</p>
+    <p> Lore: {{ champion.lore}}</p>
+
+    <p>Ability Q: {{ champion.abilityNameQ}}</p>
+    <p>Ability Description: {{ champion.abilityDescriptionQ}}</p>
+
+    <p>Ability W: {{ champion.abilityNameW}}</p>
+    <p>Ability Description: {{ champion.abilityDescriptionW}}</p>
+
+    <p>Ability E: {{ champion.abilityNameE}}</p>
+    <p>Ability Description: {{ champion.abilityDescriptionE}}</p>
+
+    <p>Ability R: {{ champion.abilityNameR}}</p>
+    <p>Ability Description: {{ champion.abilityDescriptionR}}</p>
+    Comments:
+    <ol>{% for c in comment %}
+    
+        {% ifequal c.champion champion.id %}
+            <li>{{ c }}</li>
+        {% endifequal %}
+    {% empty %}
+        <div>Champion Has No Comments :(</div>
+    {% endfor %}
+    </ol>
+    <a href="{% url 'champions_update' champion.id %}">Update Champion</a> |
+    <a href="{% url 'champions_delete' champion.id %}">Delete This Champion</a>
+    <a href="{% url 'comment_create' champion.id %}">Leave a Comment</a>
+</div>
+{% endblock %}
