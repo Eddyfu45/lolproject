@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     </head>
     <body>
-        <h1>League of Legends' Champions</h1>
+        <h1 class="champIndex">League of Legends' Champions</h1>
         <hr />
         {% block content %}
         <div>
@@ -18,8 +18,7 @@
         
         {% for champion in champions %}
             <a href="/champions/{{champion.id}}">{{ champion.name }}</a>
-            <a href='/user/{{champion.user.username}}'>
-                <p>Favorited By: {{champion.user.username}}</p>
+            <p>Favorited By: {{champion.user.username}}</p>
             </a>
         <hr />
         {% endfor %}

@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'RGAPI-23908087-5cca-4709-a469-67565209e7b3'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 import dj_database_url
 import django_heroku
 
@@ -28,8 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lol-sei-project.herokuapp.com']
-
+# ALLOWED_HOSTS = ['lol-sei-project.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config()
+# DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
