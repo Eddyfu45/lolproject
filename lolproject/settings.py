@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lol-project4.herokuapp.com']
 
 
 # Application definition
@@ -86,6 +86,8 @@ DATABASES = {
         'NAME': 'champions',
     }
 }
+
+DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
