@@ -12,12 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-from os import environ
-from dotenv import load_dotenv, dotenv_values
-load_dotenv()
-config = dotenv_values(".env")
-print('( config )', config)
-SECRET_KEY = config.get('SECRET_KEY')
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 import dj_database_url
 import django_heroku
 
@@ -32,8 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['lol-project4.herokuapp.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lol-project4.herokuapp.com']
+
 
 
 # Application definition
@@ -50,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -89,7 +86,7 @@ DATABASES = {
     }
 }
 
-# DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
@@ -116,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -135,5 +132,4 @@ STATIC_ROOT = os.path.join(BASE_DIR,  'static')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-django_heroku.settings(locals())
+LOGIN_URL = '/login'
