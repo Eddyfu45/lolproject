@@ -1,4 +1,40 @@
+* {
+    padding: 10px;
+}
+
 h1 {
-    color: turquoise;
+    color: green;
+    font-size: small;
+}
+
+body {
+    background-color: turquoise;
+}
+
+header {
+    background-color: lightgreen;
+}
+
+div {
+    color: green;
+    background-color: yellow;
+}
+
+span {
+    padding: 3px;
+    background-color: white;
+}
+
+.projectTitle {
+    font-size: 50px;
+}
+
+.homepage {
+    font-size: 30px;
+    text-align: center;
+}
+
+footer {
     font-size: 20px;
+    color: black;
 }

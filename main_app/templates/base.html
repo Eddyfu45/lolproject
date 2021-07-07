@@ -8,6 +8,7 @@
   </head>
   <header>
     {% if user.is_authenticated %}
+    <span> | </span>
     <span><a href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a></span>
     <span> | </span>
     <span><a href="{% url 'logout' %}">Logout</a></span>
@@ -23,11 +24,6 @@
   </header>
   <hr />
   <body>
-     <!-- <a href="/champions">
-         <h1>League of Legends Champions</h1>
-     </a>
-    <hr /> -->
-
         {% block content %}
         {% endblock %}
 
