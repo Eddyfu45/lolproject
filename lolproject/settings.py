@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lol-project4.herokuapp.com']
+ALLOWED_HOSTS = ['lol-sei-project.herokuapp.com']
 
 
 
